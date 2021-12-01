@@ -25,7 +25,7 @@ const postSchema = new mongoose.Schema({
     },
     tags: {
         type: Map,
-        of: Number,
+        of: String,
         required: true,
     },
     coverImg: {
@@ -53,6 +53,6 @@ const postSchema = new mongoose.Schema({
     }
 })
 
-const post = mongoose.model('post', postSchema)
+const Post = mongoose.model('post', postSchema)
 
-module.exports = post;
+module.exports = Post;
