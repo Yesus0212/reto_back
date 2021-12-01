@@ -2,7 +2,8 @@ require('dotenv').config(); // Aquí estamos utilizando el archivo .env
 
 const express = require('express');
 const mongoose = require('mongoose');
-const Post = require('./post.model');  // Aquí import
+const Post = require('./post.model');  // Aquí importamos el modelo
+const routerPosts = require('./routers/posts');  // Aquí importamos el router
 
 // Aquí utilizamos las variables obteniendo el valor desde el .env
 const PORT = process.env.PORT;
@@ -51,23 +52,36 @@ app.delete('/posts/:id', async (req, res) => {
     try {
         // Aquí obtengo el id enviado como parametro de ruta
         const postId = req.params.id;
+        
+        const deletePost = await Post.deleteOne(`{ id: ${postId}}`)
 
-        const koder = await Koder.create({
-            name,
-            lastName,
-            gender, 
-            age
-        });
-
-        res.statusCode = 201;
+        res.statusCode = 200;
         res.json({
-            success: true,
-            koder
+            success: true
         });
     }
     catch(error){
         console.log(error);
-        res.statusCode = 500;
+        res.statusCode = 404;
+        res.end();
+    }
+    
+});
+
+app.delete('/posts', async (req, res) => {    
+    try {
+        const postId = req.query;
+        
+        const deletePost = await Post.deleteOne(`{ id: ${postId}}`)
+
+        res.statusCode = 200;
+        res.json({
+            success: true
+        });
+    }
+    catch(error){
+        console.log(error);
+        res.statusCode = 404;
         res.end();
     }
     
