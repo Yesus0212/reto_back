@@ -20,7 +20,6 @@ const postSchema = new mongoose.Schema({
     content: {
         type: String,
         minlegth: 2,
-        maxlength:500,
         required: true,
     },
     tags: {
