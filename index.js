@@ -3,7 +3,7 @@ require('dotenv').config(); // Aquí estamos utilizando el archivo .env
 const express = require('express');
 const mongoose = require('mongoose');
 const Post = require('./post.model');  // Aquí importamos el modelo
-const routerPosts = require('./routers/posts');  // Aquí importamos el router
+// const routerPosts = require('./routers/posts');  // Aquí importamos el router
 
 // Aquí utilizamos las variables obteniendo el valor desde el .env
 const PORT = process.env.PORT;
@@ -33,9 +33,11 @@ app.get('/posts', async (req, res) => {
         const filters = {};
     
         filters.$or = [
-            { content : {$regex: content}},
+            { content : content},
             { title: title }
         ]
+
+        console.log(filters)
 
         const posts = await Post.find(filters);       
     
