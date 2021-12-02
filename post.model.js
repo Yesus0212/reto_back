@@ -14,18 +14,17 @@ const postSchema = new mongoose.Schema({
     title: {
         type: String,
         minlegth: 2,
-        maxlength: 50,
+        maxlength: 100,
         required: true,
     },
     content: {
         type: String,
         minlegth: 2,
-        maxlength:500,
         required: true,
     },
     tags: {
         type: Map,
-        of: Number,
+        of: String,
         required: true,
     },
     coverImg: {
@@ -50,9 +49,13 @@ const postSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         required: true,
+    },
+    unicorns: {
+        type: String,
+        required: true,
     }
 })
 
-const post = mongoose.model('post', postSchema)
+const Post = mongoose.model('post', postSchema)
 
-module.exports = post;
+module.exports = Post;
