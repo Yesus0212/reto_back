@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
     user: {
         type: String,
         minlegth: 2,
-        maxlength: 50,
+        maxlength: 100,
         required: true,
     },
     userImg: {
@@ -14,7 +14,6 @@ const postSchema = new mongoose.Schema({
     title: {
         type: String,
         minlegth: 2,
-        maxlength: 50,
         required: true,
     },
     content: {
@@ -27,7 +26,7 @@ const postSchema = new mongoose.Schema({
         of: String,
         required: true,
     },
-    coverImg: {
+    coverImage: {
         type: String,
         required: true,
     },
@@ -37,8 +36,7 @@ const postSchema = new mongoose.Schema({
         required: true,  
     },
     image:{
-        type: String,
-        required: true,
+        type: String
     },
     likes: {
         type: Number,
@@ -49,9 +47,14 @@ const postSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         required: true,
+    },
+    unicorns: {
+        type: String,
+        min: 0,
+        required: true,
     }
 })
 
-const Post = mongoose.model('post', postSchema)
+const Post = mongoose.model('posts', postSchema)
 
 module.exports = Post;
