@@ -12,11 +12,7 @@ async function getPost(request, response) {
 
         response.statusCode = 200;
         response.json({
-            success: true,
-            message: 'Find Posts',
-            data: {
-                posts
-            }
+            posts
         })
     }
     catch(error) {
@@ -38,11 +34,7 @@ async function getPostById(request, response) {
 
         response.statusCode = 200;
         response.json({
-            success: true,
-            message: 'Find Post',
-            data: {
-                posts
-            }
+            posts
         })
     }
     catch(error) {
@@ -65,11 +57,7 @@ async function setPost(request, response) {
         response.statusCode = 200;
         response.json({
             success: true,
-            message: 'Post Insert',
-            data: {
-                createPost,
-                newPost
-            }
+            newPost
         })
     }
     catch(error) {
@@ -93,10 +81,7 @@ async function deletePost(request, response) {
         response.statusCode = 200;
         response.json({
             success: true,
-            message: 'Delete Post',
-            data: {
-                deletePost
-            }
+            deletePost            
         })
     }
     catch(error) {

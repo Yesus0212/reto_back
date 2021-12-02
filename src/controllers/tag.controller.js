@@ -7,11 +7,7 @@ async function getTag(request, response) {
 
         response.statusCode = 200;
         response.json({
-            success: true,
-            message: 'Find Tags',
-            data: {
-                tags
-            }
+            tags            
         })
     }
     catch(error) {

@@ -7,11 +7,7 @@ async function getUser(request, response) {
 
         response.statusCode = 200;
         response.json({
-            success: true,
-            message: 'Find Users',
-            data: {
-                users
-            }
+            users            
         })
     }
     catch(error) {
