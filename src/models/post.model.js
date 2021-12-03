@@ -49,7 +49,7 @@ const postSchema = new mongoose.Schema({
         required: true,
     },
     unicorns: {
-        type: String,
+        type: Number,
         min: 0,
         required: true,
     }
